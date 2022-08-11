@@ -1,11 +1,21 @@
-# MagiskPatchedFlashTools  
-Magisk修补刷入工具  
+# MagiskPatchedFlashTools
 
-# 更新日志  
-### v1.0  
-首个版本:更新Magisk版本,修补boot,刷入boot  
-### v1.1
-更新脚本为EXE程序  
+Magisk 修补刷入工具
+
+## 更新日志
+
+### v1.3
+
+更新内置 Magisk 版本为 Alpha_1735a713_25201
+
 ### v1.2
-更新内置Magisk版本为Alpha_c97d1044_25102  
 
+更新内置 Magisk 版本为 Alpha_c97d1044_25102
+
+### v1.1
+
+更新脚本为 EXE 程序
+
+### v1.0
+
+首个版本:更新 Magisk 版本,修补 boot,刷入 boot
