@@ -13,7 +13,7 @@
 ::egkzugNsPRvcWATEpCI=
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
-::YxY4rhs+aU+IeA==
+::YxY4rhs+aU+JeA==
 ::cxY6rQJ7JhzQF1fEqQJhZko0
 ::ZQ05rAF9IBncCkqN+0xwdVsFAlXi
 ::ZQ05rAF9IAHYFVzEqQIdKRxdXw8G46Uyx3CZAD9+Ci8CdYiYsTVf
@@ -32,11 +32,13 @@
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-title Magisk修补刷入工具
+set EXE_VER=v1.4
+title Magisk修补刷入工具%EXE_VER%
 :MAIN
 cls
 echo.
-echo.Magisk修补刷入工具 by:忆清鸣、luckyzyx
+echo.Magisk修补刷入工具%EXE_VER%
+echo.by:忆清鸣、luckyzyx
 echo.
 echo.1.更新内置Magisk版本
 echo.2.修补boot.img文件
@@ -44,7 +46,7 @@ echo.3.刷入boot.img镜像
 echo.q.退出
 echo.
 set SELECT=""
-set /p SELECT="请输入要进行的操作:"
+set /p SELECT="请输入要进行的操作序号:"
 if "%SELECT%" == "1" goto UPDATE
 if "%SELECT%" == "2" goto PATCH
 if "%SELECT%" == "3" goto FLASH
@@ -53,7 +55,8 @@ goto MAIN
 :UPDATE
 cls
 echo.
-echo.Magisk修补刷入工具 by:忆清鸣、luckyzyx
+echo.Magisk修补刷入工具%EXE_VER%
+echo.by:忆清鸣、luckyzyx
 echo.
 echo.更新内置Magisk版本
 echo.输入q返回菜单页面
@@ -96,7 +99,8 @@ goto MAIN
 :PATCH
 cls
 echo.
-echo.Magisk修补刷入工具 by:忆清鸣、luckyzyx
+echo.Magisk修补刷入工具%EXE_VER%
+echo.by:忆清鸣、luckyzyx
 echo.
 echo.修补boot.img文件
 echo.如需切换Magisk版本请先更新Magisk版本再进行修补
@@ -134,7 +138,8 @@ goto MAIN
 :FLASH
 cls
 echo.
-echo.Magisk修补刷入工具 by:忆清鸣、luckyzyx
+echo.Magisk修补刷入工具%EXE_VER%
+echo.by:忆清鸣、luckyzyx
 echo.
 echo.刷入boot.img镜像
 echo.输入q返回菜单页面
