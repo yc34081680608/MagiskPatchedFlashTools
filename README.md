@@ -6,8 +6,8 @@ Magisk 修补刷入工具
 
 ### v1.5
 
-添加解锁 BootLoader
-添加关闭 AVB 校验
+添加解锁 BootLoader  
+添加关闭 AVB 校验  
 更新内置 Magisk 版本为 Alpha_555a54ec_25203
 
 ### v1.4
