@@ -2,8 +2,8 @@
 # Magisk General Utility Functions
 ############################################
 
-MAGISK_VER='c5c608f0-alpha'
-MAGISK_VER_CODE=25202
+MAGISK_VER='555a54ec-alpha'
+MAGISK_VER_CODE=25203
 
 ###################
 # Helper Functions
