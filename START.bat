@@ -9,8 +9,8 @@
 ::cBs/ulQjdF+5
 ::ZR41oxFsdFKZSTk=
 ::eBoioBt6dFKZSDk=
-::cRo6pxp7LAbNWATEpCI=
-::egkzugNsPRvcWATEpCI=
+::cRo6pxp7LAbNWATEpSI=
+::egkzugNsPRvcWATEpSI=
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+JeA==
@@ -33,7 +33,7 @@
 ::978f952a14a936cc963da21a135fa983
 @echo off
 
-set EXE_VER=v1.5
+set EXE_VER=v1.6
 
 title Magisk修补刷入工具%EXE_VER%
 :MAIN
@@ -49,13 +49,13 @@ echo.4.刷入boot.img镜像
 echo.5.关闭AVB校验(一般无需使用)
 echo.q.退出
 echo.
-set SELECT=""
+set SELECT=
 set /p SELECT="请输入要进行的操作序号:"
 if "%SELECT%" == "1" goto UNLOCK
 if "%SELECT%" == "2" goto UPDATE
 if "%SELECT%" == "3" goto PATCH
 if "%SELECT%" == "4" goto FLASH
-if "%SELECT%" == "5" goto AVB
+if "%SELECT%" == "5" goto FLASHAVB
 if /i "%SELECT%" == "q" exit
 goto MAIN
 
@@ -68,7 +68,7 @@ echo.
 echo.解锁BootLoader
 echo.输入y开始解锁
 echo.输入q返回菜单页面
-set SetUnlock=""
+set SetUnlock=
 set /p SetUnlock="输入要进行的操作(y/q):"
 if /i "%SetUnlock%" == "y" goto STARTUNLOCK
 if /i "%SetUnlock%" == "q" ( goto MAIN )
@@ -91,7 +91,7 @@ echo.
 echo.更新内置Magisk版本
 echo.输入q返回菜单页面
 bin\busybox bash -c "echo 当前Magisk版本为:`cat bin/util_functions.sh | grep MAGISK_VER | cut -d = -f 2`"
-set MagiskDir=""
+set MagiskDir=
 set /p MagiskDir="拖拽Magisk.zip/apk文件到此进行更新(q):"
 if /i "%MagiskDir%" == "q" ( goto MAIN )
 if not exist %MagiskDir% ( echo.未检测到文件 %MagiskDir% & goto UPDATE ) else ( goto STARTUPDATE )
@@ -140,7 +140,7 @@ echo.
 setlocal enabledelayedexpansion
 if exist boot.img (
 	set BOOTIMG=boot.img
-	set PatchFlag=""
+	set PatchFlag=
 	set /p PatchFlag="检测到当前目录下boot.img镜像文件 !BOOTIMG! 是否修补? (y/n/q)"
 	if /i "!PatchFlag!" == "y" goto STARTPATCH
 	if /i "!PatchFlag!" == "n" goto CUSTOMPATCH
@@ -148,7 +148,7 @@ if exist boot.img (
 	goto PATCH
 )
 :CUSTOMPATCH
-set BOOTIMG=""
+set BOOTIMG=
 set /p BOOTIMG="请输入要修补的boot文件路径或拖拽boot.img文件到此进行修补(q):"
 if /i "!BOOTIMG!" == "q" ( goto MAIN )
 if not exist !BOOTIMG! ( echo.未检测到文件 %BOOTIMG% & goto CUSTOMPATCH) else ( goto STARTPATCH )
@@ -177,7 +177,7 @@ echo.
 setlocal enabledelayedexpansion
 if exist boot_patched.img (
 	set BOOTIMG=boot_patched.img
-	set FlashFlag=""
+	set FlashFlag=
 	set /p FlashFlag="检测到已修补的boot镜像 !BOOTIMG! 是否刷入? (y/n/q)"
 	if /i "!FlashFlag!" EQU "y" goto CHECKVAB
 	if /i "!FlashFlag!" EQU "n" goto CUSTOMFLASH
@@ -195,7 +195,7 @@ echo.选择你的手机分区类型(不知道选择 1 )
 echo.1.非VAB类型(单分区)
 echo.2.VAB类型(具有ab分区,可以切换ab槽位)
 echo.输入q返回菜单页面
-set VAB=""
+set VAB=
 set /p VAB="请输入选项然后回车(1/2/q):"
 if "!VAB!" == "1" set VABType= & goto STARTFLASH 
 if "!VAB!" == "2" set VABType=_ab & goto STARTFLASH 
@@ -211,7 +211,7 @@ setlocal disabledelayedexpansion
 pause
 goto MAIN
 
-:AVB
+:FLASHAVB
 cls
 echo.
 echo.Magisk修补刷入工具%EXE_VER%
@@ -225,7 +225,7 @@ setlocal enabledelayedexpansion
 if exist vbmeta.img (
 	set VBIMG=vbmeta.img
 	set AVBFlashFlag=""
-	set /p AVBFlashFlag="检测到已修补的boot镜像 !VBIMG! 是否刷入? (y/n/q)"
+	set /p AVBFlashFlag="检测到目录下vbmeta.img镜像 !VBIMG! 是否刷入? (y/n/q)"
 	if /i "!AVBFlashFlag!" EQU "y" goto STARTFLASHAVB
 	if /i "!AVBFlashFlag!" EQU "n" goto CUSTOMFLASHAVB
 	if /i "!AVBFlashFlag!" EQU "q" goto MAIN

@@ -4,6 +4,10 @@ Magisk 修补刷入工具
 
 ## 更新日志
 
+### v1.6
+
+更新内置 Magisk 版本为 Alpha_44643ad7_25205  
+
 ### v1.5
 
 添加解锁 BootLoader  
