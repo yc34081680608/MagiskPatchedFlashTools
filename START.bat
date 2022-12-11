@@ -33,7 +33,7 @@
 ::978f952a14a936cc963da21a135fa983
 @echo off
 
-set EXE_VER=v1.6
+set EXE_VER=v1.7
 
 title Magisk–ﬁ≤πÀ¢»Îπ§æﬂ%EXE_VER%
 :MAIN

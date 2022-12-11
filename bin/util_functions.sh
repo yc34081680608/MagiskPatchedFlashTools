@@ -2,7 +2,7 @@
 # Magisk General Utility Functions
 ############################################
 
-MAGISK_VER='44643ad7-alpha'
+MAGISK_VER='ed37ddd5-alpha'
 MAGISK_VER_CODE=25205
 
 ###################
