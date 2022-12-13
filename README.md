@@ -4,6 +4,10 @@ Magisk 修补刷入工具
 
 ## 更新日志
 
+### v1.8
+
+修复 VBMeta 刷入问题
+
 ### v1.7
 
 更新内置 Magisk 版本为 Alpha_ed37ddd5_25205

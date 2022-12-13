@@ -33,7 +33,7 @@
 ::978f952a14a936cc963da21a135fa983
 @echo off
 
-set EXE_VER=v1.7
+set EXE_VER=v1.8
 
 title Magisk修补刷入工具%EXE_VER%
 :MAIN
@@ -238,7 +238,7 @@ if /i "!VBIMG!" == "q" ( goto MAIN )
 if not exist !VBIMG! ( echo.未检测到文件 %VBIMG% & goto CUSTOMFLASHAVB) else ( goto STARTFLASHAVB )
 :STARTFLASHAVB
 bin\fastboot devices
-bin\fastboot --disable-verity --disable-verification vbmeta !VBIMG!
+bin\fastboot --disable-verity --disable-verification flash vbmeta !VBIMG!
 bin\fastboot reboot
 echo.刷入完成!
 echo.
